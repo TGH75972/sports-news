@@ -3,46 +3,57 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    color: rgb(255, 255, 255);
+    color: #ffffff;
     font-family: Verdana, Geneva, sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 0;
     padding: 0;
+    animation: fadeInBackground 2s ease-in-out;
 }
 
 header {
     text-align: center;
     margin-top: 20px;
     width: 100%;
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.8);
     padding: 20px 0;
     padding-top: 30px;
     margin-bottom: 30px;
-    margin-top: -10px;
+    animation: slideDown 1s ease-in-out;
 }
 
 header h1 {
     font-size: 2.5em;
     font-weight: bold;
+    animation: glow 1.5s ease-in-out infinite alternate;
 }
 
 main {
     width: 80%;
     max-width: 800px;
     margin-top: 20px;
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.8);
     padding: 20px;
     border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    animation: zoomIn 1s ease-in-out;
 }
 
 .article {
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.8);
     border: 1px solid rgba(255, 255, 255, 0.2);
     padding: 55px;
     margin-bottom: 20px;
     border-radius: 8px;
+    animation: fadeIn 1s ease-in-out;
+    transition: transform 0.3s;
+}
+
+.article:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
 }
 
 .article h2 {
@@ -54,18 +65,84 @@ main {
 .article p {
     font-size: 1em;
     color: white;
+    animation: textFadeIn 1.5s ease-in-out;
 }
 
 .article img {
     width: 100%;
     border-radius: 8px;
     margin-top: 10px;
+    animation: fadeIn 2s ease-in-out;
 }
 
 footer {
     margin-top: 40px;
     text-align: center;
-    background-color: rgb(39, 39, 39);
+    background-color: rgba(0, 0, 0, 0.8);
     width: 100%;
     padding: 10px 0;
+    animation: slideUp 1s ease-in-out;
+}
+
+@keyframes fadeInBackground {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.5), 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.5), 0 0 40px rgba(255, 255, 255, 0.5);
+    }
+    to {
+        text-shadow: 0 0 10px rgba(255, 255, 255, 1), 0 0 20px rgba(255, 255, 255, 1), 0 0 30px rgba(255, 255, 255, 1), 0 0 50px rgba(255, 255, 255, 1);
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.8);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes textFadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0);
+    }
 }
